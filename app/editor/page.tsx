@@ -13,6 +13,10 @@ export default function EditorPage() {
     editorDOMAttributes: {
       'data-test': 'editor',
     },
+    initialContent: new Array(100).fill({
+      type: 'paragraph',
+      content: 'Hello, world!',
+    }),
     theme: 'light',
   });
 
@@ -20,7 +24,7 @@ export default function EditorPage() {
   (window as WindowWithProseMirror).ProseMirror = editor?._tiptapEditor;
 
   return (
-    <div className="container p-8">
+    <div>
       <BlockNoteView editor={editor} />
     </div>
   );
